@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VW Golf Configurator</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body, html {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      height: 100%;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #111;
+    }
+
+    canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      display: block;
+      z-index: 1;
+    }
+
+    #ui {
+      position: absolute;
+      top: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10;
+      background: rgba(255, 255, 255, 0.97);
+      border-radius: 12px;
+      padding: 12px 20px;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 12px;
+      max-width: 95%;
+      width: 900px;
+    }
+
+    select,
+    input[type="text"],
+    button {
+      font-size: 14px;
+      padding: 6px 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+
+    input[type="color"] {
+      width: 40px;
+      height: 30px;
+      padding: 0;
+      border: none;
+      cursor: pointer;
+      background: transparent;
+    }
+
+    input[type="checkbox"] {
+      transform: scale(1.2);
+      margin-right: 4px;
+      accent-color: #222;
+    }
+
+    label {
+      font-size: 14px;
+      white-space: nowrap;
+    }
+
+    button {
+      background: #222;
+      color: white;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+
+    button:hover {
+      background: #444;
+    }
+
+    @media (max-width: 768px) {
+      #ui {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        padding: 16px;
+      }
+
+      select,
+      input[type="text"],
+      button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="ui">
+    <label for="variantSelect">Choose Variant:</label>
+    <select id="variantSelect">
+      <option value="base">Golf Base</option>
+      <option value="gti">Golf GTI</option>
+      <option value="r">Golf R</option>
+    </select>
+
+    <label for="colorPicker">Your Car Colour:</label>
+    <input type="color" id="colorPicker" value="#c93030" />
+
+    <input type="checkbox" id="showSplitter" />
+    <label for="showSplitter">Show Front Splitter</label>
+
+    <input type="checkbox" id="showSpoiler" />
+    <label for="showSpoiler">Show Rear Spoiler</label>
+
+    <input type="text" id="regInput" placeholder="Enter registration e.g. YA66 UTC" />
+
+    <button id="loadCarBtn">Load My Car</button>
+  </div>
+
+  <canvas id="three-canvas"></canvas>
+
+  <script type="module" src="./main.js"></script>
+</body>
+</html>
