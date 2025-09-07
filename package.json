@@ -1,4 +1,3 @@
-
 {
   "name": "car-configurator",
   "version": "1.0.0",
@@ -14,7 +13,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "vite": "^4.5.14"
+    "vite": "^7.1.4"
   },
   "dependencies": {
     "cors": "^2.8.5",
